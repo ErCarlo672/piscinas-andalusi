@@ -103,6 +103,35 @@
     });
   }, 'portada');
 
+  // Parallax 3D en la portada: el ratón (o la inclinación del móvil) mueve cada capa a su profundidad, con inercia
+  safe(() => {
+    const hero = document.querySelector('.hero');
+    let mx = 0, my = 0, ox = 0, oy = 0, visible = true;
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(hero);
+    addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      ox = clamp(e.clientX / innerWidth * 2 - 1, -1, 1);
+      oy = clamp(e.clientY / innerHeight * 2 - 1, -1, 1);
+    }, { passive: true });
+    document.documentElement.addEventListener('mouseleave', () => { ox = 0; oy = 0; });
+    // Móviles que dan la inclinación sin pedir permiso (Android): el mismo efecto al inclinar el teléfono
+    addEventListener('deviceorientation', (e) => {
+      if (e.gamma == null || e.beta == null) return;
+      ox = clamp(e.gamma / 25, -1, 1);
+      oy = clamp((e.beta - 45) / 25, -1, 1);
+    }, { passive: true });
+    const animar = () => {
+      requestAnimationFrame(animar);
+      if (!visible) return;
+      const nx = mx + (ox - mx) * .06, ny = my + (oy - my) * .06;
+      if (Math.abs(nx - mx) < .0005 && Math.abs(ny - my) < .0005) return;
+      mx = nx; my = ny;
+      hero.style.setProperty('--mx', mx.toFixed(4));
+      hero.style.setProperty('--my', my.toFixed(4));
+    };
+    requestAnimationFrame(animar);
+  }, 'parallax portada');
+
   // Cinta de servicios: bucle infinito; el scroll la acelera y al subir cambia de sentido
   safe(() => {
     const cinta = document.getElementById('cinta');

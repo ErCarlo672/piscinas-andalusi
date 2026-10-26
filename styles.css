@@ -189,7 +189,17 @@ p { text-wrap: pretty; }
   animation: asoma 2s var(--curva) .95s both;
 }
 .hero__foto { width: 100%; height: 100%; object-fit: cover; transform: scale(calc(1.12 - var(--p) * .12)); }
-.hero__marco::after { content: ""; position: absolute; inset: 0; background: rgba(10, 26, 34, .45); }
+.hero__marco::after { content: ""; position: absolute; inset: 0; background: rgba(10, 26, 34, .45); pointer-events: none; }
+
+/* Parallax 3D por capas: el JS lleva --mx y --my de -1 a 1 según el ratón (o la inclinación del móvil).
+   La foto va al revés y al fondo; el titular, delante y algo inclinado; el resto, a profundidades intermedias. */
+.hero { --mx: 0; --my: 0; }
+.hero__foto { translate: calc(var(--mx) * (1 - var(--p)) * -24px) calc(var(--my) * (1 - var(--p)) * -16px); }
+.hero__contenido { perspective: 1200px; }
+.hero__titulo { transform: translate3d(calc(var(--mx) * 32px), calc(var(--my) * 20px), 0) rotateY(calc(var(--mx) * 6deg)) rotateX(calc(var(--my) * -5deg)); }
+.hero__sub { translate: calc(var(--mx) * 18px) calc(var(--my) * 12px); }
+.hero__acciones { translate: calc(var(--mx) * 14px) calc(var(--my) * 9px); }
+.hero__datos { translate: calc(var(--mx) * 8px) calc(var(--my) * 5px); }
 .hero__contenido {
   position: relative; display: grid; grid-template-rows: 1fr auto auto; padding: 96px var(--lado) 0;
   opacity: calc(1 - var(--p) * 1.6); transform: translateY(calc(var(--p) * -80px));
