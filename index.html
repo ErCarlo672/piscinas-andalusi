@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Piscinas Andalusí · Construcción de piscinas en Sevilla</title>
+  <meta name="description" content="Construimos piscinas de hormigón proyectado a medida en Sevilla, para particulares y comunidades. 15 años de garantía en impermeabilidad. Presupuesto sin compromiso: 658 75 20 78.">
+  <meta property="og:title" content="Piscinas Andalusí · Construcción de piscinas en Sevilla">
+  <meta property="og:description" content="Piscinas de hormigón a medida, de la excavación al primer baño. 15 años de garantía en impermeabilidad.">
+  <meta property="og:image" content="https://ercarlo672.github.io/piscinas-andalusi/assets/og.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0a1a22">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20261026f">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué garantía tiene la piscina?", "acceptedAnswer": { "@type": "Answer", "text": "15 años de garantía por escrito en la impermeabilidad del vaso y 2 años en el equipo de depuración." } },
+      { "@type": "Question", "name": "¿Qué forma y tamaño puede tener?", "acceptedAnswer": { "@type": "Answer", "text": "La que encaje con tu jardín. Al construir en hormigón proyectado no hay moldes ni medidas de catálogo." } },
+      { "@type": "Question", "name": "¿Cuánto tarda la obra?", "acceptedAnswer": { "@type": "Answer", "text": "Depende del tamaño, del terreno y del acceso de la maquinaria. En la visita te damos un plazo cerrado antes de empezar." } },
+      { "@type": "Question", "name": "¿Trabajáis con comunidades de vecinos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Construimos y reformamos piscinas comunitarias con la misma garantía que en una casa particular." } },
+      { "@type": "Question", "name": "¿Reformáis piscinas antiguas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Reparamos fugas, tuberías, skimmers y depuradoras, impermeabilizamos el vaso y renovamos el revestimiento." } },
+      { "@type": "Question", "name": "¿Cloro o sal?", "acceptedAnswer": { "@type": "Answer", "text": "Instalamos electrólisis salina: el equipo genera el cloro a partir de sal común y el mantenimiento es mucho más sencillo." } },
+      { "@type": "Question", "name": "¿En qué zona trabajáis?", "acceptedAnswer": { "@type": "Answer", "text": "En Sevilla capital y provincia. Estamos en Alcalá de Guadaíra." } },
+      { "@type": "Question", "name": "¿El presupuesto tiene coste?", "acceptedAnswer": { "@type": "Answer", "text": "No. Visitamos el terreno y te damos el presupuesto sin compromiso." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="saltar" href="#main">Saltar al contenido</a>
+
+  <!-- Telón de agua: cubre la pantalla al cargar y se vacía hacia abajo (se oculta solo por CSS aunque falle el JS) -->
+  <div class="telon" id="telon" aria-hidden="true">
+    <div class="telon__agua telon__agua--fondo"></div>
+    <div class="telon__agua"></div>
+    <div class="telon__marca">
+      <svg viewBox="0 0 48 48"><path d="M6 20c4.5 0 4.5-3 9-3s4.5 3 9 3 4.5-3 9-3 4.5 3 9 3M6 28c4.5 0 4.5-3 9-3s4.5 3 9 3 4.5-3 9-3 4.5 3 9 3M6 36c4.5 0 4.5-3 9-3s4.5 3 9 3 4.5-3 9-3 4.5 3 9 3"/></svg>
+      <span>Andalusí</span>
+      <small>Piscinas · Sevilla</small>
+    </div>
+  </div>
+
+  <!-- Navegación en isla flotante -->
+  <header class="isla" id="isla">
+    <a class="marca" href="#inicio" aria-label="Piscinas Andalusí, inicio">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 20c4.5 0 4.5-3 9-3s4.5 3 9 3 4.5-3 9-3 4.5 3 9 3M6 28c4.5 0 4.5-3 9-3s4.5 3 9 3 4.5-3 9-3 4.5 3 9 3M6 36c4.5 0 4.5-3 9-3s4.5 3 9 3 4.5-3 9-3 4.5 3 9 3"/></svg>
+      <span>Andalusí</span>
+    </a>
+    <nav class="isla__enlaces" aria-label="Secciones">
+      <a href="#proceso">Proceso</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#preguntas">Preguntas</a>
+    </nav>
+    <a class="btn btn--agua btn--sm" href="#contacto">Pedir presupuesto</a>
+    <button class="hamburguesa" id="abrir-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="menu" id="menu" aria-label="Menú principal" aria-hidden="true">
+    <ol>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#construimos">Qué construimos</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#trabajos">Trabajos</a></li>
+      <li><a href="#preguntas">Preguntas</a></li>
+      <li><a href="#contacto">Presupuesto</a></li>
+    </ol>
+    <p class="menu__pie"><a href="tel:+34658752078">658 75 20 78</a> · <a href="mailto:info@piscinasandalusi.net">info@piscinasandalusi.net</a></p>
+  </nav>
+
+  <main id="main">
+    <!-- PORTADA: la foto se recoge en una tarjeta al bajar -->
+    <section class="hero" id="inicio">
+      <div class="hero__fijo">
+        <div class="hero__marco">
+          <img class="hero__foto" src="assets/portada.webp" alt="Piscina construida por Piscinas Andalusí con muro de cristal, piedra natural y césped" width="1179" height="813" fetchpriority="high">
+        </div>
+        <div class="hero__contenido">
+          <h1 class="hero__titulo"><span>Piscinas</span><span>Andalusí</span></h1>
+          <p class="hero__sub">Construimos piscinas de hormigón a medida en Sevilla, para casas y comunidades.<br>Con 15 años de garantía por escrito.</p>
+          <div class="hero__acciones">
+            <a class="btn btn--agua" href="#contacto">Pedir presupuesto sin compromiso</a>
+            <p class="hero__lugar">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span><strong>Alcalá de Guadaíra</strong> · Sevilla y provincia</span>
+            </p>
+          </div>
+          <ul class="hero__datos">
+            <li><b>15 años</b><span>Garantía en impermeabilidad</span></li>
+            <li><b>2 años</b><span>Garantía en depuración</span></li>
+            <li><b>A medida</b><span>Cualquier forma y tamaño</span></li>
+            <li><b>Particulares</b><span>y comunidades</span></li>
+          </ul>
+        </div>
+        <div class="cinta" id="cinta" aria-label="Servicios">
+          <div class="cinta__pista">
+            <ul class="cinta__grupo">
+              <li>Piscinas de hormigón</li>
+              <li>Gunitado</li>
+              <li>Gresite</li>
+              <li>Coronación in situ</li>
+              <li>Depuración</li>
+              <li>Electrólisis salina</li>
+              <li>Reformas</li>
+              <li>Impermeabilización</li>
+              <li>Cubiertas</li>
+              <li>Comunidades</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS DESTACADOS -->
+    <section class="bloque" id="proyectos">
+      <div class="cab cab--fila">
+        <h2 class="etiqueta">Proyectos destacados</h2>
+        <a class="enlace-flecha" href="#trabajos">Ver todos los trabajos</a>
+      </div>
+      <div class="proyectos">
+        <a class="proyecto revela" href="#trabajos">
+          <img src="assets/trabajos/alargada.webp" alt="Piscina alargada con playa de obra y coronación clara" loading="lazy">
+          <span class="proyecto__txt"><b>Piscina alargada</b><small>Hormigón proyectado · gresite</small></span>
+        </a>
+        <a class="proyecto revela" href="#trabajos">
+          <img src="assets/trabajos/romana.webp" alt="Piscina con escalera romana y gresite azul" loading="lazy">
+          <span class="proyecto__txt"><b>Escalera romana</b><small>Escalera de obra · coronación in situ</small></span>
+        </a>
+        <a class="proyecto revela" href="#trabajos">
+          <img src="assets/trabajos/noche-2.webp" alt="Piscina iluminada de noche con focos sumergidos" loading="lazy">
+          <span class="proyecto__txt"><b>Piscina de noche</b><small>Iluminación sumergida</small></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- TAGLINE: cada palabra se enciende al bajar -->
+    <section class="bloque lema">
+      <p class="etiqueta">Pensada para tu casa</p>
+      <h2 class="lema__frase" id="lema">Sin formas ni tamaños de catálogo.<br>Tu piscina se adapta a tu jardín, y no al revés.</h2>
+      <div class="lema__txt revela">
+        <p>Diseñamos y construimos piscinas en hormigón proyectado (gunitado), sin limitación de formas ni tamaños, para que elijas la que mejor encaja con el jardín, la casa y su entorno.</p>
+        <p>Usamos la técnica que más conviene según el terreno y la situación de la vivienda, para entregarte una piscina de alta calidad en el menor tiempo posible y con todas las garantías.</p>
+      </div>
+    </section>
+
+    <!-- QUÉ CONSTRUIMOS: sección fija, la foto cambia con el scroll -->
+    <section class="construimos" id="construimos">
+      <div class="construimos__fijo">
+        <div class="construimos__dentro">
+          <p class="etiqueta">Qué construimos</p>
+          <div class="construimos__grid">
+            <ul class="construimos__lista" role="tablist" aria-label="Qué construimos">
+              <li><button role="tab" aria-selected="true" data-img="assets/trabajos/cascada.webp" data-txt="Piscinas de hormigón proyectado a medida: rectangulares, con playa, con escalera romana o con cascada.">Piscinas</button></li>
+              <li><button role="tab" aria-selected="false" data-img="assets/trabajos/gresite-azul.webp" data-txt="Reparamos fugas, tuberías, skimmers y vasos dañados, y renovamos el revestimiento para que no vuelva a pasar.">Reformas</button></li>
+              <li><button role="tab" aria-selected="false" data-img="assets/proceso/1-3.webp" data-txt="Equipos de depuración y electrólisis salina: el cloro se genera a partir de sal común y el mantenimiento es mucho más sencillo.">Depuración</button></li>
+              <li><button role="tab" aria-selected="false" data-img="assets/trabajos/escalera.webp" data-txt="Piedra de coronación hecha in situ, natural (pizarra, caliza, arenisca, cuarcita), artificial o de madera.">Coronación</button></li>
+              <li><button role="tab" aria-selected="false" data-img="assets/trabajos/tarima.webp" data-txt="Cubiertas de lona PVC para el invierno: la piscina se queda llena, limpia de hojas y segura para niños y animales.">Cubiertas</button></li>
+            </ul>
+            <figure class="construimos__foto">
+              <div class="construimos__marco">
+                <img src="assets/trabajos/cascada.webp" alt="" class="activa">
+                <img src="assets/trabajos/gresite-azul.webp" alt="" loading="lazy">
+                <img src="assets/proceso/1-3.webp" alt="" loading="lazy">
+                <img src="assets/trabajos/escalera.webp" alt="" loading="lazy">
+                <img src="assets/trabajos/tarima.webp" alt="" loading="lazy">
+              </div>
+              <figcaption id="construimos-txt">Piscinas de hormigón proyectado a medida: rectangulares, con playa, con escalera romana o con cascada.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO: la obra en 3D, guiada por el scroll -->
+    <section class="obra" id="proceso">
+      <div class="bloque obra__intro">
+        <p class="etiqueta">Nuestro proceso</p>
+        <h2 class="titulo">Así construimos<br>tu piscina</h2>
+        <p class="cab__sub">Baja despacio: la obra avanza contigo. Nueve pasos, un mismo equipo, y en cada uno una foto real de nuestras obras.</p>
+      </div>
+      <div class="obra__pista" id="obra-pista">
+        <div class="obra__fijo">
+          <canvas class="obra__lienzo" id="obra-lienzo" aria-label="Animación 3D de la construcción de una piscina paso a paso" role="img"></canvas>
+          <div class="obra__panel" aria-live="polite">
+            <p class="obra__num">Paso <b id="obra-num">01</b> / 09</p>
+            <h3 id="obra-titulo">Replanteo</h3>
+            <p id="obra-desc"></p>
+            <figure class="obra__foto">
+              <img id="obra-foto" src="assets/proceso/1-4.webp" alt="">
+              <figcaption>Foto real de obra</figcaption>
+            </figure>
+          </div>
+          <ol class="obra__barra" id="obra-barra" aria-label="Ir a un paso"></ol>
+          <p class="obra__aviso" id="obra-aviso">Desliza para construir <span aria-hidden="true">↓</span></p>
+        </div>
+      </div>
+      <!-- Lista de pasos: es la versión sin 3D y de aquí salen los textos del panel -->
+      <ol class="obra__lista bloque" id="obra-lista">
+        <li data-foto="1-4"><h3>Replanteo</h3><p>Visitamos el terreno, marcamos con estacas y cuerda la forma y la medida exactas, y decidimos contigo dónde irán la escalera y la depuración.</p></li>
+        <li data-foto="1-5"><h3>Excavación</h3><p>Vaciamos el terreno con maquinaria a la profundidad replanteada, dejando el fondo y las paredes listos para trabajar.</p></li>
+        <li data-foto="1-6"><h3>Encofrado y ferralla</h3><p>Montamos la armadura de acero que da forma y resistencia al vaso de la piscina.</p></li>
+        <li data-foto="1-7"><h3>Hormigón proyectado</h3><p>Gunitamos el vaso: el hormigón se proyecta a alta presión y forma una sola pieza resistente que no deja pasar el agua.</p></li>
+        <li data-foto="1-8"><h3>Escalera</h3><p>Levantamos la escalera de obra a medida: recta, lateral o romana, como mejor encaje en tu piscina.</p></li>
+        <li data-foto="1-9"><h3>Piedra de coronación</h3><p>Colocamos la coronación in situ, en piedra natural, artificial o madera, y la playa alrededor del vaso.</p></li>
+        <li data-foto="1-10"><h3>Revestimiento de gresite</h3><p>Revestimos el vaso con gresite en el color que elijas. Es lo que le da a tu piscina su tono de agua.</p></li>
+        <li data-foto="1-3"><h3>Depuración</h3><p>Instalamos tuberías, skimmers, focos y el equipo de depuración, con 2 años de garantía.</p></li>
+        <li data-foto="3-1"><h3>Tu piscina</h3><p>Llenamos, ponemos en marcha la depuración y te entregamos la piscina lista para el primer baño, con 15 años de garantía en impermeabilidad.</p></li>
+      </ol>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="bloque servicios" id="servicios">
+      <div class="cab">
+        <p class="etiqueta">Servicios</p>
+        <h2 class="titulo">Más que<br>una piscina</h2>
+        <p class="cab__sub">Todo lo que necesita tu piscina, hecho por el mismo equipo.</p>
+      </div>
+      <ol class="servicios__lista">
+        <li class="revela"><span>01</span><h3>Construcción de piscinas</h3><p>Todo tipo de piscinas según tus necesidades y posibilidades.</p></li>
+        <li class="revela"><span>02</span><h3>Piscinas de hormigón</h3><p>Hormigón proyectado sin límites de forma ni tamaño.</p></li>
+        <li class="revela"><span>03</span><h3>Reforma e impermeabilidad</h3><p>Fugas, tuberías, depuradora, skimmers y limpiafondos.</p></li>
+        <li class="revela"><span>04</span><h3>Gunitado de muros</h3><p>Para piscinas, muros, taludes, aljibes y depósitos.</p></li>
+        <li class="revela"><span>05</span><h3>Piedras de coronamiento in situ</h3><p>Amplio catálogo de tamaños, colores y materiales.</p></li>
+        <li class="revela"><span>06</span><h3>Equipo de depuración</h3><p>Instalación y sustitución de equipos completos.</p></li>
+        <li class="revela"><span>07</span><h3>Electrólisis salina</h3><p>Desinfección ecológica y segura a partir de sal común.</p></li>
+        <li class="revela"><span>08</span><h3>Toldos y cubiertas</h3><p>Lona PVC para proteger la piscina en invierno.</p></li>
+        <li class="revela"><span>09</span><h3>Accesorios de piscinas</h3><p>Escaleras, focos, duchas y todo lo necesario.</p></li>
+        <li class="revela"><span>10</span><h3>Alquiler de máquina de gunitado</h3><p>Para profesionales y obras propias.</p></li>
+      </ol>
+    </section>
+
+    <!-- GARANTÍAS -->
+    <section class="garantias" id="garantias">
+      <p class="etiqueta">Garantía por escrito</p>
+      <div class="garantias__grid">
+        <div><b data-fin="15">15</b><span>años de garantía<br>en impermeabilidad</span></div>
+        <div><b data-fin="2">2</b><span>años de garantía<br>en depuración</span></div>
+      </div>
+      <p class="garantias__txt">Garantizamos la impermeabilidad de los vasos y la depuración como muestra de nuestra profesionalidad y experiencia.</p>
+    </section>
+
+    <!-- ANTES / DESPUÉS: el scroll abre la cortina -->
+    <section class="antes" id="antes">
+      <div class="antes__fijo">
+        <div class="antes__dentro">
+          <div class="cab">
+            <p class="etiqueta">Antes y después</p>
+            <h2 class="titulo">Baja y mira<br>la diferencia</h2>
+          </div>
+          <div class="comparador" id="comparador" style="--pos:50%">
+            <img src="assets/proceso/3-1.webp" alt="Después: piscina terminada con agua y coronación" loading="lazy">
+            <div class="comparador__antes"><img src="assets/proceso/3-4.webp" alt="Antes: excavación del terreno con máquina" loading="lazy"></div>
+            <span class="comparador__eti comparador__eti--a">Antes</span>
+            <span class="comparador__eti comparador__eti--d">Después</span>
+            <span class="comparador__linea" aria-hidden="true"><i></i></span>
+            <input type="range" min="0" max="100" value="50" aria-label="Deslizar entre antes y después">
+          </div>
+          <p class="antes__pie">Obra real · de la excavación al primer baño</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRABAJOS: galería que se desplaza en horizontal -->
+    <section class="trabajos" id="trabajos">
+      <div class="trabajos__fijo">
+        <div class="cab trabajos__cab">
+          <p class="etiqueta">Trabajos</p>
+          <h2 class="titulo">Piscinas que<br>ya disfrutan</h2>
+        </div>
+        <div class="trabajos__pista" id="trabajos-pista">
+          <button class="foto" data-src="assets/trabajos/jardin.webp"><img src="assets/trabajos/jardin.webp" alt="Piscina con forma romana rodeada de césped" loading="lazy" width="1200" height="583"></button>
+          <button class="foto" data-src="assets/trabajos/turquesa.webp"><img src="assets/trabajos/turquesa.webp" alt="Piscina de gresite turquesa" loading="lazy" width="1200" height="900"></button>
+          <button class="foto" data-src="assets/trabajos/playa.webp"><img src="assets/trabajos/playa.webp" alt="Piscina con playa de obra" loading="lazy" width="900" height="1200"></button>
+          <button class="foto" data-src="assets/trabajos/cesped.webp"><img src="assets/trabajos/cesped.webp" alt="Piscina con escalera de obra junto al césped" loading="lazy" width="1024" height="768"></button>
+          <button class="foto" data-src="assets/trabajos/grande.webp"><img src="assets/trabajos/grande.webp" alt="Piscina grande rectangular" loading="lazy" width="1024" height="768"></button>
+          <button class="foto" data-src="assets/trabajos/tarima.webp"><img src="assets/trabajos/tarima.webp" alt="Piscina con tarima de madera" loading="lazy" width="900" height="1200"></button>
+          <button class="foto" data-src="assets/trabajos/noche.webp"><img src="assets/trabajos/noche.webp" alt="Piscina iluminada de noche" loading="lazy" width="1024" height="768"></button>
+          <button class="foto" data-src="assets/proceso/4-1.webp"><img src="assets/proceso/4-1.webp" alt="Piscina terminada con coronación clara" loading="lazy" width="1000" height="750"></button>
+          <button class="foto" data-src="assets/trabajos/escalera.webp"><img src="assets/trabajos/escalera.webp" alt="Piscina con escalera lateral de obra" loading="lazy" width="1024" height="768"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMUNIDADES -->
+    <section class="comunidades revela">
+      <div>
+        <p class="etiqueta">Comunidades de vecinos</p>
+        <h2 class="titulo">Piscinas para toda<br>la urbanización</h2>
+        <p>Construimos y reformamos piscinas comunitarias: impermeabilización, depuración y revestimiento, con la misma garantía que en una casa particular.</p>
+      </div>
+      <a class="btn btn--claro" href="#contacto">Pedir presupuesto sin compromiso</a>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="bloque preguntas" id="preguntas">
+      <div class="cab">
+        <p class="etiqueta">Preguntas frecuentes</p>
+        <h2 class="titulo">Lo que nos<br>preguntan antes</h2>
+      </div>
+      <div class="preguntas__lista">
+        <details class="revela"><summary>¿Qué garantía tiene la piscina?</summary><p>15 años de garantía por escrito en la impermeabilidad del vaso y 2 años en el equipo de depuración.</p></details>
+        <details class="revela"><summary>¿Qué forma y tamaño puede tener?</summary><p>La que encaje con tu jardín. Al construir en hormigón proyectado no hay moldes ni medidas de catálogo.</p></details>
+        <details class="revela"><summary>¿Cuánto tarda la obra?</summary><p>Depende del tamaño, del terreno y del acceso de la maquinaria. En la visita te damos un plazo cerrado antes de empezar.</p></details>
+        <details class="revela"><summary>¿Trabajáis con comunidades de vecinos?</summary><p>Sí. Construimos y reformamos piscinas comunitarias con la misma garantía que en una casa particular.</p></details>
+        <details class="revela"><summary>¿Reformáis piscinas antiguas?</summary><p>Sí. Reparamos fugas, tuberías, skimmers y depuradoras, impermeabilizamos el vaso y renovamos el revestimiento.</p></details>
+        <details class="revela"><summary>¿Cloro o sal?</summary><p>Instalamos electrólisis salina: el equipo genera el cloro a partir de sal común y el mantenimiento es mucho más sencillo.</p></details>
+        <details class="revela"><summary>¿En qué zona trabajáis?</summary><p>En Sevilla capital y provincia. Estamos en Alcalá de Guadaíra.</p></details>
+        <details class="revela"><summary>¿El presupuesto tiene coste?</summary><p>No. Visitamos el terreno y te damos el presupuesto sin compromiso.</p></details>
+      </div>
+    </section>
+
+    <!-- CONTACTO: llamada final, la misma que arriba -->
+    <section class="bloque contacto" id="contacto">
+      <div class="contacto__info revela">
+        <p class="etiqueta">Presupuesto sin compromiso</p>
+        <h2 class="contacto__titulo">Empieza<br>tu piscina</h2>
+        <ul>
+          <li><span>Teléfono</span><a href="tel:+34658752078">658 75 20 78</a></li>
+          <li><span>Email</span><a href="mailto:info@piscinasandalusi.net">info@piscinasandalusi.net</a></li>
+          <li><span>Dirección</span>Orense 12, 41500 Alcalá de Guadaíra (Sevilla)</li>
+        </ul>
+      </div>
+      <form class="form revela" id="form-presupuesto" novalidate>
+        <label>Nombre<input name="nombre" autocomplete="name" required aria-describedby="error-nombre"></label>
+        <p class="form__error" id="error-nombre" hidden>Escribe tu nombre para que sepamos a quién responder.</p>
+        <label>¿Qué necesitas?
+          <select name="tipo">
+            <option>una piscina nueva</option>
+            <option>reformar mi piscina</option>
+            <option>una piscina para mi comunidad</option>
+            <option>depuración o electrólisis</option>
+            <option>otra cosa</option>
+          </select>
+        </label>
+        <div class="form__fila">
+          <label>Pueblo<input name="pueblo" placeholder="Ej. Dos Hermanas"></label>
+          <label>Medida aprox.<input name="medida" placeholder="Ej. 8 × 4 m"></label>
+        </div>
+        <label>Mensaje<textarea name="mensaje" rows="3" placeholder="Cuéntanos tu idea"></textarea></label>
+        <button class="btn btn--agua" type="submit">Pedir presupuesto sin compromiso</button>
+        <p class="form__nota">Se abrirá WhatsApp con tu mensaje listo para enviar.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p class="pie__marca" aria-hidden="true">Andalusí</p>
+    <p>Piscinas Andalusí · Alcalá de Guadaíra, Sevilla</p>
+    <p class="pie__legal"><a href="legal.html">Aviso legal y privacidad</a> · <a href="legal.html#cookies">Cookies</a></p>
+    <p class="pie__autor">Diseñado por <a href="https://ercarlo672.github.io/" target="_blank" rel="noopener">Carlos Salguero</a></p>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/34658752078" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg>
+  </a>
+
+  <dialog class="visor" id="visor" aria-label="Foto ampliada"><img src="" alt=""></dialog>
+
+  <script src="assets/lib/lenis.min.js?v=20261026f" defer></script>
+  <script src="assets/lib/gsap.min.js?v=20261026f" defer></script>
+  <script src="assets/lib/ScrollTrigger.min.js?v=20261026f" defer></script>
+  <script src="app.js?v=20261026f" defer></script>
+</body>
+</html>
