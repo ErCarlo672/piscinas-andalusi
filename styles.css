@@ -181,8 +181,9 @@ p { text-wrap: pretty; }
 .menu__pie { margin: 32px auto 0; width: 100%; max-width: var(--ancho); opacity: .8; }
 
 /* Portada: foto fija que se recoge en una tarjeta al bajar (el JS mueve --p de 0 a 1) */
-.hero { position: relative; height: 200vh; height: 200svh; --p: 0; }
-.hero__fijo { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: grid; grid-template-rows: 1fr auto; color: var(--blanco); }
+.hero { position: relative; --p: 0; }
+.hero__fijo { position: relative; height: 100vh; height: 100svh; overflow: hidden; display: grid; grid-template-rows: 1fr auto; color: var(--blanco); }
+@media (min-width: 960px) { .hero { height: 200vh; height: 200svh; } .hero__fijo { position: sticky; top: 0; } }
 .hero__marco {
   position: absolute; inset: 0; overflow: hidden; background: var(--noche);
   clip-path: inset(calc(var(--p) * 8%) calc(var(--p) * 5%) calc(var(--p) * 8%) calc(var(--p) * 5%) round calc(var(--p) * 24px));
@@ -393,12 +394,14 @@ html:not(.con3d) .obra__pista { display: none; }
 /* Antes / después: fijo mientras el scroll abre la cortina */
 .antes__dentro { max-width: var(--ancho); margin: 0 auto; padding: 80px var(--lado); width: 100%; }
 .antes .cab { margin-bottom: 32px; }
-.js .antes { height: 240vh; }
-.js .antes__fijo { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; align-items: center; }
-.js .antes__dentro { padding-block: 64px 32px; }
+@media (min-width: 960px) {
+  .js .antes { height: 240vh; }
+  .js .antes__fijo { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; align-items: center; }
+  .js .antes__dentro { padding-block: 64px 32px; }
+}
 .comparador { position: relative; border-radius: var(--r-2xl); overflow: hidden; aspect-ratio: 4 / 3; user-select: none; margin: 0 auto; }
 @media (min-width: 640px) { .comparador { aspect-ratio: 16 / 9; } }
-.js .comparador { max-width: calc(56svh * 16 / 9); }
+@media (min-width: 960px) { .js .comparador { max-width: calc(56svh * 16 / 9); } }
 .comparador img { width: 100%; height: 100%; object-fit: cover; }
 .comparador__antes { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
 .comparador__eti { position: absolute; top: 16px; background: rgba(10, 26, 34, .75); color: var(--blanco); font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 8px 12px; border-radius: 9999px; }
@@ -417,10 +420,13 @@ html:not(.con3d) .obra__pista { display: none; }
 .foto img { height: 100%; width: auto; max-width: none; object-fit: cover; transition: transform 1.2s var(--curva), opacity var(--dur) var(--curva); }
 .foto:hover img { transform: scale(1.05); opacity: .9; }
 .foto:active { transform: scale(.98); }
-.js .trabajos__fijo { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
-.js .trabajos__cab { padding-top: 64px; }
-.js .trabajos__pista { overflow: visible; padding-bottom: 32px; will-change: transform; scroll-snap-type: none; }
-.js .foto { height: min(52svh, 520px); }
+.trabajos__desliza { display: none; align-items: center; gap: 8px; margin: 0 var(--lado) 32px; font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gris); }
+@media (min-width: 960px) {
+  .js .trabajos__fijo { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+  .js .trabajos__cab { padding-top: 64px; }
+  .js .trabajos__pista { overflow: visible; padding-bottom: 32px; will-change: transform; scroll-snap-type: none; }
+  .js .foto { height: min(52svh, 520px); }
+}
 
 /* Comunidades */
 .comunidades {
@@ -513,7 +519,53 @@ html.lenis, html.lenis body { height: auto; }
 
 /* Ajustes de móvil */
 @media (max-width: 959px) {
-  .obra__pista { height: 800vh; }
+  /* Ritmo: menos aire entre secciones y la obra 3D más corta (un paso cada 2/3 de pantalla) */
+  .bloque { padding-block: 64px; }
+  .construimos__dentro, .antes__dentro { padding-block: 64px; }
+  .trabajos__cab { padding-top: 64px; margin-bottom: 24px; }
+  .obra__intro { padding-bottom: 32px; }
+  .obra__pista { height: 600vh; height: 600svh; }
+
+  /* Rendimiento: sin desenfoques de cristal ni de entrada, que en el iPhone dejan zonas sin pintar */
+  .cinta, .obra__panel, .obra__barra, .proyecto__txt { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .cinta { background: rgba(10, 26, 34, .82); }
+  .obra__panel { background: rgba(10, 26, 34, .94); }
+  .obra__barra { background: rgba(243, 238, 230, .94); }
+  .js .revela { filter: none; transform: translateY(24px); transition: opacity .7s var(--curva), transform .7s var(--curva); }
+  .js .revela.visible { transform: none; }
+  .inclina { will-change: auto; }
+
+  /* Portada: titular algo menor para que entre con aire, datos compactos */
+  .hero__contenido { padding-top: 88px; }
+  .hero__sub { margin-top: 16px; }
+  .hero__acciones { margin: 16px 0 24px; }
+  .hero__datos { gap: 12px; padding-block: 12px; }
+  .hero__datos b, .hero__datos span { font-size: 12px; line-height: 16px; }
+
+  /* Proyectos: pie de foto pequeño, la foto manda */
+  .proyecto__txt { left: 8px; right: auto; bottom: 8px; max-width: calc(100% - 16px); padding: 8px 12px; background: rgba(10, 26, 34, .82); }
+  .proyecto__txt b { font-size: 14px; line-height: 20px; }
+  .proyecto__txt small { display: none; }
+
+  /* Qué construimos: palabras más pequeñas y la foto justo debajo */
+  .construimos__lista button { font-size: 30px; line-height: 36px; padding: 8px 0; }
+  .construimos__grid { gap: 24px; }
+
+  /* Trabajos: carrusel nativo que se desliza con el dedo, tarjetas iguales y la siguiente asomando */
+  .trabajos__pista { gap: 12px; padding: 0 var(--lado) 16px; scroll-padding-inline: var(--lado); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .trabajos__pista::-webkit-scrollbar { display: none; }
+  .foto { width: 78vw; height: auto; aspect-ratio: 4 / 5; }
+  .foto img { width: 100%; height: 100%; }
+  .trabajos__desliza { display: flex; }
+
+  /* Antes y después: un poco más alto para que se vea bien la obra */
+  .comparador { aspect-ratio: 4 / 3; }
+
+  /* Garantías y contacto */
+  .garantias { padding-block: 64px; }
+  .garantias__grid { gap: 32px; }
+  .form { padding: 24px; }
+  .comunidades { padding: 32px 24px; }
   .obra__barra { right: auto; left: var(--lado); top: 80px; transform: none; display: flex; gap: 4px; padding: 8px 12px; }
   .obra__barra button { font-size: 0; gap: 0; padding: 4px 2px; }
   .obra__aviso { top: 128px; }
@@ -527,4 +579,11 @@ html.lenis, html.lenis body { height: auto; }
 }
 @media (max-width: 639px) {
   .cab--fila { flex-direction: column; align-items: start; }
+}
+/* Teléfonos estrechos: los titulares en mayúsculas anchas bajan un escalón para que ninguna palabra se salga */
+@media (max-width: 419px) {
+  .titulo { font-size: 30px; line-height: 36px; }
+  .contacto__titulo { font-size: 48px; }
+  .comunidades { padding: 32px 16px; }
+  .construimos__lista button { font-size: 24px; line-height: 32px; }
 }

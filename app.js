@@ -11,15 +11,17 @@
 
   const hayGSAP = !!(window.gsap && window.ScrollTrigger);
   const escritorio = () => matchMedia('(min-width: 960px)').matches;
+  // En pantallas táctiles se usa el scroll nativo del teléfono (Lenis solo suaviza la rueda del ratón)
+  const tactil = matchMedia('(hover: none), (pointer: coarse)').matches;
 
-  // Scroll suave: Lenis sincronizado con el reloj de GSAP. Sin Lenis, scroll nativo.
+  // Scroll suave: Lenis sincronizado con el reloj de GSAP. Sin Lenis o en táctil, scroll nativo.
   let lenis = null;
   const alScroll = [];
   const cadaScroll = (fn) => alScroll.push(fn);
   const lanzarScroll = () => alScroll.forEach((fn) => safe(fn, 'scroll'));
   safe(() => {
     if (hayGSAP) gsap.registerPlugin(ScrollTrigger);
-    if (window.Lenis) {
+    if (window.Lenis && !tactil) {
       lenis = window.lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 0.9 });
       lenis.on('scroll', lanzarScroll);
       if (hayGSAP) {
@@ -96,10 +98,11 @@
   safe(() => {
     const hero = document.querySelector('.hero');
     cadaScroll(() => {
+      // En móvil la portada no queda fija: no se recoge y el botón de WhatsApp vuelve al dejarla atrás
       const recorrido = hero.offsetHeight - innerHeight;
-      const p = recorrido > 0 ? clamp(scrollY / recorrido) : 0;
+      const p = recorrido > 40 ? clamp(scrollY / recorrido) : 0;
       hero.style.setProperty('--p', p.toFixed(4));
-      document.body.classList.toggle('en-portada', p < 1);
+      document.body.classList.toggle('en-portada', recorrido > 40 ? p < 1 : scrollY < innerHeight * .5);
     });
   }, 'portada');
 
@@ -352,9 +355,9 @@
     cifras.forEach((b) => io.observe(b));
   }, 'garantías');
 
-  // Parallax suave en las fotos de proyectos
+  // Parallax suave en las fotos de proyectos (solo escritorio)
   safe(() => {
-    if (!hayGSAP) return;
+    if (!hayGSAP || !escritorio()) return;
     document.querySelectorAll('.proyecto img').forEach((img) => {
       gsap.fromTo(img, { yPercent: -6, scale: 1.12 }, {
         yPercent: 6, scale: 1.12, ease: 'none',
@@ -374,18 +377,29 @@
     cadaScroll(() => {
       const r = seccion.getBoundingClientRect();
       if (r.bottom < 0 || r.top > innerHeight) { manual = false; return; }
-      if (manual || seccion.offsetHeight <= innerHeight * 1.2) return;
-      const p = clamp(-r.top / (seccion.offsetHeight - innerHeight));
+      if (manual) return;
+      // Escritorio: la sección está fija y la cortina sigue al recorrido.
+      // Móvil: la sección pasa normal y la cortina se abre mientras cruza la pantalla.
+      const p = seccion.offsetHeight > innerHeight * 1.2
+        ? clamp(-r.top / (seccion.offsetHeight - innerHeight))
+        : clamp((innerHeight * .85 - comparador.getBoundingClientRect().top) / (innerHeight * .7));
       poner(Math.round(94 - p * 88));
     });
   }, 'antes y después');
 
-  // Trabajos: el scroll vertical desplaza la galería en horizontal
+  // Trabajos: en escritorio el scroll vertical desplaza la galería en horizontal;
+  // en móvil es un carrusel nativo que se desliza con el dedo
   safe(() => {
     const seccion = document.getElementById('trabajos');
     const pista = document.getElementById('trabajos-pista');
     let distancia = 0;
     const medir = () => {
+      if (!escritorio()) {
+        distancia = 0;
+        seccion.style.height = '';
+        pista.style.transform = '';
+        return;
+      }
       distancia = Math.max(0, pista.scrollWidth - innerWidth);
       seccion.style.height = `${distancia + innerHeight}px`;
     };
@@ -393,6 +407,7 @@
     addEventListener('resize', medir);
     addEventListener('load', medir);
     cadaScroll(() => {
+      if (!distancia) return;
       const r = seccion.getBoundingClientRect();
       const p = clamp(-r.top / Math.max(1, seccion.offsetHeight - innerHeight));
       pista.style.transform = `translate3d(${-p * distancia}px,0,0)`;
